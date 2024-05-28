@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px; /* Add some padding to the top */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    min-width: 60px;
+}
+
+thead {
+    background-color: #f0f0f0;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+input:focus {
+    border: 1px solid #00f;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button + button {
+    margin-left: 10px;
+}
+
+.table-container {
+    max-height: 70vh; /* Adjust this height as needed */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
