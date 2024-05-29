@@ -59,7 +59,7 @@ function handleNavigation(event) {
 
     if(isMobile()){
         switch(event.key){
-            case 'ArrowRight':
+            case '13':
                 moveFocus(table, currentRowIndex + 1, currentColIndex);
                 break;  
         }
