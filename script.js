@@ -58,7 +58,7 @@ function handleNavigation(event) {
     const currentColIndex = Array.from(tr.children).indexOf(td);
 
     if(isMobile()){
-        switch(event.key){
+        switch(event.keyCode){
             case '13':
                 moveFocus(table, currentRowIndex + 1, currentColIndex);
                 break;  
