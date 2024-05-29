@@ -57,12 +57,9 @@ function handleNavigation(event) {
     const currentRowIndex = Array.from(table.children).indexOf(tr);
     const currentColIndex = Array.from(tr.children).indexOf(td);
 
-    if(isMobile()){
-        switch(event.keyCode){
-            case '13':
-                moveFocus(table, currentRowIndex + 1, currentColIndex);
-                break;  
-        }
+   if(event.keyCode=== 32){
+            moveFocus(table, currentRowIndex + 1, currentColIndex);
+                
     }
     else{ 
         switch (event.key) {
