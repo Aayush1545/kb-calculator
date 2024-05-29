@@ -70,6 +70,9 @@ function handleNavigation(event) {
         case 'ArrowRight':
             moveFocus(table, currentRowIndex, currentColIndex + 1);
             break;
+        case 'Enter':
+            moveFocus(table, currentRowIndex + 1, currentColIndex);
+            break;     
     }
 }
 
