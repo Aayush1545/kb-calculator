@@ -57,7 +57,15 @@ function handleNavigation(event) {
     const currentRowIndex = Array.from(table.children).indexOf(tr);
     const currentColIndex = Array.from(tr.children).indexOf(td);
 
-    switch (event.key) {
+    if(isMobile()){
+        switch(event.key){
+            case 'ArrowRight':
+                moveFocus(table, currentRowIndex + 1, currentColIndex);
+                break;  
+        }
+    }
+    else{ 
+        switch (event.key) {
         case 'ArrowUp':
             moveFocus(table, currentRowIndex - 1, currentColIndex);
             break;
@@ -72,8 +80,11 @@ function handleNavigation(event) {
             break;
         case 'Enter':
             moveFocus(table, currentRowIndex + 1, currentColIndex);
-            break;     
+            break;    
     }
+
+  } 
+    
 }
 
 function moveFocus(table, rowIndex, colIndex) {
@@ -103,7 +114,7 @@ function handleAutoFill(event) {
             thirdColInput.value = '';
             fourthColInput.value = '';
             fifthColInput.value = '';
-            
+
             if (value === '4.30' && secondColInput) {
                 secondColInput.value = '2.39';
             }
@@ -648,4 +659,8 @@ function saveTableDataAsPDF() {
 
     // Save the PDF
     doc.save('table.pdf');
+}
+
+function isMobile() {
+    return /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 600;
 }
