@@ -2,21 +2,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0; /* Remove default margin */
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fffefe;
 }
 
 .container {
     text-align: center;
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding-top: 50px; /* Add some padding to the top */
+    padding-top: 30px; /* Add some padding to the top */
+    padding-bottom: 20px;
+    
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    
 }
 
 th, td {
@@ -30,17 +33,26 @@ thead {
     background-color: #f0f0f0;
 }
 
-input {
-    width: 100%;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
+.supplierNameInput,.veichleNumberInput,.dateInput,.rateInput {
+    display: block;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-size: 15px;
+    border: 1px solid grey ;
+
+}
+.rateInput{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
-input:focus {
-    border: 1px solid #00f;
-}
+
+
 
 button {
     margin-top: 20px;
@@ -65,4 +77,65 @@ button + button {
     overflow-y: auto;
     border: 1px solid #ddd;
     margin-top: 20px;
+    
+}
+
+
+
+.supplierLabel,.veichle-no,.dateLabel,.rateLabel{
+    display: inline-block;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.title{
+    display: block;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.titleh1{
+    margin: 0;
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+input{
+    border: none;
+    text-align: center;
+}
+
+input:focus{
+    outline: 1px solid #663db3;
+	outline-offset: -2px;
+}
+
+.veichleInfo,.date{
+    display: inline-block;
+}
+
+/* .date{
+    
+    margin-left: 60%;
+} */
+
+.suppInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .rate{
+    margin-left: 60% ;
+} */
+.info2{
+    display: flex;
+    justify-content: space-between;
 }
