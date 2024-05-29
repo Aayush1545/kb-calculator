@@ -57,7 +57,7 @@ function handleNavigation(event) {
     const currentRowIndex = Array.from(table.children).indexOf(tr);
     const currentColIndex = Array.from(tr.children).indexOf(td);
 
-   if(event.keyCode=== 32){
+   if(event.key === " " ){
             moveFocus(table, currentRowIndex + 1, currentColIndex);
                 
     }
