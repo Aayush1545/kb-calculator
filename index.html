@@ -3,16 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel-like Sheet</title>
+    <title>KB Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Aayush</h1>
-        <label for="name-input">Enter your name: </label>
-        <input type="text" id="name-input" placeholder="Your Name">
+    <div class="title">
+    <h1 class="titleh1">
+        KB Calculator
+    </h1> 
+    </div>
+    <div class="info">
+        <div class="suppInfo">
+        <div>
+            <div for="name-input" class="supplierLabel">Enter Supplier's Name : </div>
+          <input type="text" id="name-input" class="supplierNameInput" placeholder="Supplier's Name">
+        </div>
+          <div class="rate">
+            <div class="rateLabel">Enter Rate:</div>
+            <input type="number" id="rate-input" class="rateInput" placeholder="Enter Rate" >
+        </div>
+        </div>
+        <div class="info2">
+            <div class="veichleInfo">
+                <div for="veichle-no-input" class="veichle-no">Enter Veichle No.</div>
+                <input type="text" id="veichle-no-input" class="veichleNumberInput" placeholder="Veichle No.">
+            </div>
+            <div class="date">
+                <div class="dateLabel">Enter Date:</div>
+                <input type="date" id="date-input" class="dateInput" >
+            </div>
+        </div>
+    </div>
     
-        <table id="sheet-table">
+    <div class="container">
+       <table id="sheet-table">
             <thead>
                 <tr>
                     <th></th>
@@ -28,8 +52,9 @@
             </tbody>
         </table>
         <button id="add-row-button">Add Row</button>
-        <button id="save-button">Save as PDF</button>
+        
         <button id="calculate-sum-button">Calculate Sums</button>
+        <button id="save-button">Save as PDF</button>
         <div id="sums-display"></div>
 
     </div>
@@ -38,3 +63,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
