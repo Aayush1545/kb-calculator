@@ -162,4 +162,17 @@ input:focus{
         width: 90%;
         margin: 5px auto;
     }
+
+    .table-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+    }
+
+    table {
+        width: 100%;
+        min-width: 600px; /* Ensure the table does not shrink too much */
+    }
+
+    th, td {
+        padding: 10px; /* Increase padding for better readability on small screens */
+    }
 }
