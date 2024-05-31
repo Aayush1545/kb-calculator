@@ -605,7 +605,7 @@ function saveTableDataAsPDF() {
 
     // Add header
     doc.setFontSize(18);
-    doc.text('KB Calculator', 10, 15);
+    doc.text('DETAILS:', 10, 15);
 
     // Add supplier info
     const nameInput = document.getElementById('name-input').value;
