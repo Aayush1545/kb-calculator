@@ -674,7 +674,7 @@ function saveTableDataAsPDF() {
     doc.text(sumText, 10, yPos + 7);
 
     // Save the PDF
-    doc.save('KB_Calculator.pdf');
+    doc.save(`${nameInput} - ${veichleNoInput}.pdf`);
 }
 
 
