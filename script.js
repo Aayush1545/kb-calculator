@@ -57,10 +57,11 @@ function handleNavigation(event) {
     const currentRowIndex = Array.from(table.children).indexOf(tr);
     const currentColIndex = Array.from(tr.children).indexOf(td);
 
-   if(event.key === " " ){
+    if(event.keyCode=== 32){
             moveFocus(table, currentRowIndex + 1, currentColIndex);
                 
     }
+    
     else{ 
         switch (event.key) {
         case 'ArrowUp':
@@ -77,7 +78,7 @@ function handleNavigation(event) {
             break;
         case 'Enter':
             moveFocus(table, currentRowIndex + 1, currentColIndex);
-            break;    
+            break;      
     }
 
   } 
@@ -599,27 +600,36 @@ function saveTableDataAsPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Calculate sums
-    const sums = calculateSums();
-    const rate = parseFloat(document.getElementById('rate-input').value) || 0;
-    const total = totalSum(sums,rate);
+    // Set font styles
+    doc.setFont('helvetica', 'normal');
 
-    const date= document.getElementById('date-input').value;
-    if (date) {
-        doc.text(`Date: ${date}`,10,10);
-    }
+    // Add header
+    doc.setFontSize(18);
+    doc.text('KB Calculator', 10, 15);
+
+    // Add supplier info
     const nameInput = document.getElementById('name-input').value;
-    if (nameInput) {
-        doc.text(`Supplier's Name: ${nameInput}`, 10, 20);
-    }
-
     const veichleNoInput = document.getElementById('veichle-no-input').value;
-    if(veichleNoInput) {
-        doc.text(`Veichle No.: ${veichleNoInput}`,10,30);
+    const dateInput = document.getElementById('date-input').value;
+
+    let yPos = 30;
+    if (nameInput) {
+        doc.setFontSize(12);
+        doc.text(`Supplier's Name: ${nameInput}`, 10, yPos);
+        yPos += 7;
+    }
+    if (veichleNoInput) {
+        doc.setFontSize(12);
+        doc.text(`Vehicle No.: ${veichleNoInput}`, 10, yPos);
+        yPos += 7;
+    }
+    if (dateInput) {
+        doc.setFontSize(12);
+        doc.text(`Date: ${dateInput}`, 10, yPos);
+        yPos += 7;
     }
 
-
-    // Add table to PDF
+    // Add table
     const table = document.getElementById('sheet-table');
     const rows = table.querySelectorAll('tbody tr');
     const data = [];
@@ -639,24 +649,34 @@ function saveTableDataAsPDF() {
     doc.autoTable({
         head: [['', 'Dimension', 'A', 'B', 'C', 'D']],
         body: data,
-        startY: 40,
-        headStyles: { fillColor: [0, 0, 0] },
+        startY: yPos + 10,
+        headStyles: { fillColor: [0, 0, 0], textColor: [255, 255, 255] },
         alternateRowStyles: { fillColor: [240, 240, 240] },
     });
 
-    // Add sums to the PDF
-    const sumText = 
-       `A = ${(sums[0]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2)*rate).toFixed(2)}\n
-        B = ${(sums[1]).toFixed(2)} = Rs. ${((sums[1]).toFixed(2)*(rate-30)).toFixed(2)}\n
-        C = ${(sums[2]).toFixed(2)} = Rs. ${((sums[2]).toFixed(2)*(rate-60)).toFixed(2)}\n
-        D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2)*300).toFixed(2)}\n
-        Total = Rs ${total}
-    `;
-    doc.text(sumText, 10, doc.autoTable.previous.finalY + 10);
+    // Add sums
+    const sums = calculateSums();
+    const rate = parseFloat(document.getElementById('rate-input').value) || 0;
+    const total = totalSum(sums, rate);
+
+    doc.setFontSize(12);
+    yPos = doc.autoTable.previous.finalY + 10;
+    doc.text('Summary:', 10, yPos);
+    yPos += 7;
+
+    const sumText =
+        `A = ${(sums[0]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2) * rate).toFixed(2)}\n` +
+        `B = ${(sums[1]).toFixed(2)} = Rs. ${((sums[1]).toFixed(2) * (rate - 30)).toFixed(2)}\n` +
+        `C = ${(sums[2]).toFixed(2)} = Rs. ${((sums[2]).toFixed(2) * (rate - 60)).toFixed(2)}\n` +
+        `D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2) * 300).toFixed(2)}\n` +
+        `Total = Rs ${total}`;
+
+    doc.text(sumText, 10, yPos + 7);
 
     // Save the PDF
-    doc.save('table.pdf');
+    doc.save('KB_Calculator.pdf');
 }
+
 
 function isMobile() {
     return /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 600;
