@@ -1,146 +1,132 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0; /* Remove default margin */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
     padding: 0;
-    background-color: #fffefe;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-.container {
+.header {
+    background-color: #007bff;
+    color: white;
     text-align: center;
+    padding: 10px 0;
+}
+
+.main-content {
     width: 95%;
     max-width: 1400px;
     margin: 0 auto;
-    padding-top: 30px; /* Add some padding to the top */
-    padding-bottom: 20px;
-    
+    padding: 20px 0;
+}
+
+.info, .container {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suppInfo, .info2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.suppInfo > div, .info2 > div {
+    flex: 1;
+    margin-right: 10px;
+
+}
+
+.suppInfo > div:last-child, .info2 > div:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.table-container {
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    
 }
 
 th, td {
-    border: 1px solid #ccc;
-    padding: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
     text-align: center;
-    min-width: 60px;
 }
 
 thead {
-    background-color: #f0f0f0;
+    background-color: #007bff;
+    color: white;
 }
 
-.supplierNameInput,.veichleNumberInput,.dateInput,.rateInput {
-    display: block;
-    margin: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    font-size: 15px;
-    border: 1px solid grey ;
-
-}
-.rateInput{
-    padding-left: 0px;
-    padding-right: 0px;
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
+tbody tr:hover {
+    background-color: #e9e9e9;
+}
 
-
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
 
 button {
-    margin-top: 20px;
     padding: 10px 20px;
-    cursor: pointer;
+    margin: 0 10px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-button + button {
-    margin-left: 10px;
-}
-
-.table-container {
-    max-height: 70vh; /* Adjust this height as needed */
-    overflow-y: auto;
-    border: 1px solid #ddd;
+.sums-display {
     margin-top: 20px;
-    
-}
-
-
-
-.supplierLabel,.veichle-no,.dateLabel,.rateLabel{
-    display: inline-block;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    margin-left: 10px;
-    margin-top: 15px;
-}
-
-.title{
-    display: block;
-    text-align: center;
-    background-color: black;
-    color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 0;
-}
-
-.titleh1{
-    margin: 0;
-    font-size: 36px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
     font-weight: bold;
 }
 
-input{
-    border: none;
+.footer {
     text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    margin-top: 20px;
 }
 
-input:focus{
-    outline: 1px solid #663db3;
-	outline-offset: -2px;
-}
-
-.veichleInfo,.date{
-    display: inline-block;
-}
-
-/* .date{
-    
-    margin-left: 60%;
-} */
-
-.suppInfo{
-    display: flex;
-    justify-content: space-between;
-}
-
-/* .rate{
-    margin-left: 60% ;
-} */
-.info2{
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .suppInfo, .info2 {
         flex-direction: column;
@@ -149,30 +135,30 @@ input:focus{
 
     .suppInfo > div, .info2 > div {
         width: 100%;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .supplierLabel, .veichle-no, .dateLabel, .rateLabel {
-        display: block;
-        margin-left: 0;
-    }
-
-    .supplierNameInput, .veichleNumberInput, .dateInput, .rateInput {
-        width: 90%;
-        margin: 5px auto;
+        margin-bottom: 20px;
+        margin-right: 0;
     }
 
     .table-container {
-        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-x: auto;
     }
 
     table {
         width: 100%;
-        min-width: 600px; /* Ensure the table does not shrink too much */
+        min-width: 600px;
     }
 
     th, td {
-        padding: 10px; /* Increase padding for better readability on small screens */
+        padding: 10px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    button {
+        width: 90%;
+        margin: 10px 0;
     }
 }
+
