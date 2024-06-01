@@ -579,7 +579,7 @@ function calculateSums() {
     A = ${(sums[0]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2)*rate).toFixed(2)}<br>
     B = ${(sums[1]).toFixed(2)} = Rs. ${((sums[1]).toFixed(2)*(rate-30)).toFixed(2)}<br>
     C = ${(sums[2]).toFixed(2)} = Rs. ${((sums[2]).toFixed(2)*(rate-60)).toFixed(2)}<br>
-    D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2)*300).toFixed(2)}<br>
+    D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[3]).toFixed(2)*300).toFixed(2)}<br>
     TOTAL = Rs. ${total}
     `;
 
@@ -668,7 +668,7 @@ function saveTableDataAsPDF() {
         `A = ${(sums[0]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2) * rate).toFixed(2)}\n` +
         `B = ${(sums[1]).toFixed(2)} = Rs. ${((sums[1]).toFixed(2) * (rate - 30)).toFixed(2)}\n` +
         `C = ${(sums[2]).toFixed(2)} = Rs. ${((sums[2]).toFixed(2) * (rate - 60)).toFixed(2)}\n` +
-        `D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2) * 300).toFixed(2)}\n` +
+        `D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[3]).toFixed(2) * 300).toFixed(2)}\n` +
         `Total = Rs ${total}`;
 
     doc.text(sumText, 10, yPos + 7);
