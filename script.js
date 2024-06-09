@@ -565,7 +565,7 @@ function calculateSums() {
     const tableBody = document.querySelector('#sheet-table tbody');
     const sums = [0, 0, 0, 0]; // For columns 2, 3, 4, 5
     let rate=parseFloat(document.getElementById('rate-input').value);
-
+    const dRate=parseFloat(document.getElementById('d-rate-input').value); 
     Array.from(tableBody.rows).forEach(row => {
         for (let i = 0; i < sums.length; i++) {
             const cellValue = parseFloat(row.cells[i + 2].querySelector('input').value) || 0;
@@ -579,7 +579,7 @@ function calculateSums() {
     A = ${(sums[0]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2)*rate).toFixed(2)}<br>
     B = ${(sums[1]).toFixed(2)} = Rs. ${((sums[1]).toFixed(2)*(rate-30)).toFixed(2)}<br>
     C = ${(sums[2]).toFixed(2)} = Rs. ${((sums[2]).toFixed(2)*(rate-60)).toFixed(2)}<br>
-    D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[3]).toFixed(2)*300).toFixed(2)}<br>
+    D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[3]).toFixed(2)*dRate).toFixed(2)}<br>
     TOTAL = Rs. ${total}
     `;
 
@@ -587,11 +587,12 @@ function calculateSums() {
 }
 
 function totalSum(sums, rate) {
+      const dRate=parseFloat(document.getElementById('d-rate-input').value);
     const total = (
         (Number(sums[0].toFixed(2)) * rate) +
         (Number(sums[1].toFixed(2)) * (rate - 30)) +
         (Number(sums[2].toFixed(2)) * (rate - 60)) +
-        (Number(sums[3].toFixed(2)) * 300)
+        (Number(sums[3].toFixed(2)) * dRate)
     ).toFixed(2);
     return Number(total);
 }
@@ -657,6 +658,7 @@ function saveTableDataAsPDF() {
     // Add sums
     const sums = calculateSums();
     const rate = parseFloat(document.getElementById('rate-input').value) || 0;
+      const dRate=parseFloat(document.getElementById('d-rate-input').value) || 0;
     const total = totalSum(sums, rate);
 
     doc.setFontSize(12);
@@ -668,7 +670,7 @@ function saveTableDataAsPDF() {
         `A = ${(sums[0]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2) * rate).toFixed(2)}\n` +
         `B = ${(sums[1]).toFixed(2)} = Rs. ${((sums[1]).toFixed(2) * (rate - 30)).toFixed(2)}\n` +
         `C = ${(sums[2]).toFixed(2)} = Rs. ${((sums[2]).toFixed(2) * (rate - 60)).toFixed(2)}\n` +
-        `D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[3]).toFixed(2) * 300).toFixed(2)}\n` +
+        `D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[3]).toFixed(2) * dRate).toFixed(2)}\n` +
         `Total = Rs ${total}`;
 
     doc.text(sumText, 10, yPos + 7);
