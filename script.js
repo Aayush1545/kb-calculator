@@ -1037,11 +1037,11 @@ function saveTableDataAsPDF() {
     yPos += 7;
 
     const sumText =
-        `A = ${(sums[0]).toFixed(2)} = Rs. ${((sums[0]).toFixed(2) * rate).toFixed(2)}\n` +
-        `B = ${(sums[1]).toFixed(2)} = Rs. ${((sums[1]).toFixed(2) * (rate - 30)).toFixed(2)}\n` +
-        `C = ${(sums[2]).toFixed(2)} = Rs. ${((sums[2]).toFixed(2) * (rate - 60)).toFixed(2)}\n` +
-        `D = ${(sums[3]).toFixed(2)} = Rs. ${((sums[3]).toFixed(2) * dRate).toFixed(2)}\n` +
-        `Total = Rs ${total}`;
+        `A = ${(sums[0]).toFixed(2)} KB = Rs. ${((sums[0]).toFixed(2) * rate).toFixed(2)}\n` +
+        `B = ${(sums[1]).toFixed(2)} KB = Rs. ${((sums[1]).toFixed(2) * (rate - 30)).toFixed(2)}\n` +
+        `C = ${(sums[2]).toFixed(2)} KB = Rs. ${((sums[2]).toFixed(2) * (rate - 60)).toFixed(2)}\n` +
+        `D = ${(sums[3]).toFixed(2)} KB = Rs. ${((sums[3]).toFixed(2) * dRate).toFixed(2)}\n` +
+        `Total =${(sums[0]).toFixed(2)+(sums[1]).toFixed(2)+(sums[2]).toFixed(2)+(sums[3]).toFixed(2)} Rs ${total}`;
 
     doc.text(sumText, 10, yPos + 7);
 
