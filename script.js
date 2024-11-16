@@ -968,13 +968,13 @@ function totalSum(sums, rate) {
 }
 
 function totalKb(sums) {
-    const total = (
+    const totalkb = (
         (Number(sums[0].toFixed(2))) +
         (Number(sums[1].toFixed(2))) +
         (Number(sums[2].toFixed(2))) +
         (Number(sums[3].toFixed(2)))
     ).toFixed(2);
-    return Number(total);
+    return Number(totalkb);
 }
 
 function saveTableDataAsPDF() {
