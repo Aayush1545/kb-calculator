@@ -1040,7 +1040,7 @@ function saveTableDataAsPDF() {
     const rate = parseFloat(document.getElementById('rate-input').value) || 0;
       const dRate=parseFloat(document.getElementById('d-rate-input').value) || 0;
     const total = totalSum(sums, rate);
-    const totalKb= totalKb(sums);
+    const totalKbValue= totalKb(sums);
 
     doc.setFontSize(12);
     yPos = doc.autoTable.previous.finalY + 10;
@@ -1052,7 +1052,7 @@ function saveTableDataAsPDF() {
         `B = ${(sums[1]).toFixed(2)} KB = Rs. ${((sums[1]).toFixed(2) * (rate - 30)).toFixed(2)}\n` +
         `C = ${(sums[2]).toFixed(2)} KB = Rs. ${((sums[2]).toFixed(2) * (rate - 60)).toFixed(2)}\n` +
         `D = ${(sums[3]).toFixed(2)} KB = Rs. ${((sums[3]).toFixed(2) * dRate).toFixed(2)}\n` +
-        `Total =${totalKb} KB =Rs ${total}`;
+        `Total =${totalKbValue} KB =Rs ${total}`;
 
     doc.text(sumText, 10, yPos + 7);
 
