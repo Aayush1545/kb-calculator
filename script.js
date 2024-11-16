@@ -967,6 +967,16 @@ function totalSum(sums, rate) {
     return Number(total);
 }
 
+function totalKb(sums) {
+    const total = (
+        (Number(sums[0].toFixed(2))) +
+        (Number(sums[1].toFixed(2))) +
+        (Number(sums[2].toFixed(2))) +
+        (Number(sums[3].toFixed(2)))
+    ).toFixed(2);
+    return Number(total);
+}
+
 function saveTableDataAsPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
@@ -1030,6 +1040,7 @@ function saveTableDataAsPDF() {
     const rate = parseFloat(document.getElementById('rate-input').value) || 0;
       const dRate=parseFloat(document.getElementById('d-rate-input').value) || 0;
     const total = totalSum(sums, rate);
+    const totalKb= totalKb(sums);
 
     doc.setFontSize(12);
     yPos = doc.autoTable.previous.finalY + 10;
@@ -1041,7 +1052,7 @@ function saveTableDataAsPDF() {
         `B = ${(sums[1]).toFixed(2)} KB = Rs. ${((sums[1]).toFixed(2) * (rate - 30)).toFixed(2)}\n` +
         `C = ${(sums[2]).toFixed(2)} KB = Rs. ${((sums[2]).toFixed(2) * (rate - 60)).toFixed(2)}\n` +
         `D = ${(sums[3]).toFixed(2)} KB = Rs. ${((sums[3]).toFixed(2) * dRate).toFixed(2)}\n` +
-        `Total =${(sums[0]).toFixed(2)+(sums[1]).toFixed(2)+(sums[2]).toFixed(2)+(sums[3]).toFixed(2)} Rs ${total}`;
+        `Total =${totalKb} KB =Rs ${total}`;
 
     doc.text(sumText, 10, yPos + 7);
 
